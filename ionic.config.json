@@ -1,0 +1,8 @@
+{
+  "name": "mi-mascota-spa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "mi-mascota-spa"
+}
