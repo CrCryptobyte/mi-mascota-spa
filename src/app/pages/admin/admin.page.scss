@@ -1,0 +1,92 @@
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.admin-title { font-size:22px; font-weight:700; color:var(--ion-color-dark); margin:8px 0 2px; }
+.admin-sub   { font-size:13px; color:var(--ion-color-medium); margin:0; }
+
+.total-badge {
+  --background: var(--ion-color-primary);
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ion-color-medium);
+  ion-icon { font-size:52px; display:block; margin:0 auto 12px; }
+  p { font-size:15px; }
+}
+
+.appt-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.pet-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pet-icon { font-size:24px; color:var(--ion-color-primary); }
+
+.pet-name  { font-size:16px; font-weight:600; color:var(--ion-color-dark); margin:0 0 2px; }
+.owner-name {
+  font-size: 12px;
+  color: var(--ion-color-medium);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  ion-icon { font-size:12px; }
+}
+
+.service-chip {
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.card-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ion-color-medium);
+  margin-bottom: 8px;
+  align-items: center;
+  ion-icon { vertical-align:-2px; font-size:14px; margin-right:3px; }
+}
+
+.modified-badge { background:#fff8e7; color:#b35a00; border-radius:8px; padding:2px 8px; font-size:11px; }
+
+.obs-text { font-size:13px; color:var(--ion-color-medium); margin:0 0 10px; }
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--ion-color-light);
+}
+
+.edit-label { font-size:13px; font-weight:600; color:var(--ion-color-primary); margin:0 0 12px; }
+.edit-item  { --padding-start:4px; --background:var(--ion-color-light); border-radius:8px; margin-bottom:8px; }

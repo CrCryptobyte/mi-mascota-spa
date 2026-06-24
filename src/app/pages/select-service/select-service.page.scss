@@ -1,0 +1,76 @@
+.step-label {
+  font-size: 12px;
+  color: var(--ion-color-medium);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 12px 0 4px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ion-color-dark);
+  margin: 0 0 24px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1.5px solid var(--ion-color-light);
+  background: #ffffff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &.selected {
+    border-color: var(--ion-color-primary);
+    background: #e8f7f3;
+    box-shadow: 0 2px 10px rgba(15,110,86,0.14);
+  }
+}
+
+.svc-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.svc-emoji {
+  font-size: 28px;
+  width: 44px;
+  text-align: center;
+}
+
+.svc-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+  margin: 0 0 2px;
+}
+
+.svc-desc {
+  font-size: 13px;
+  color: var(--ion-color-medium);
+  margin: 0;
+}
+
+.check-on {
+  font-size: 26px;
+  color: var(--ion-color-primary);
+}
+
+.check-off {
+  font-size: 26px;
+  color: var(--ion-color-light);
+}

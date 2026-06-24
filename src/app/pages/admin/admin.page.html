@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Administrador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- ENCABEZADO RF10 -->
+  <div class="admin-header">
+    <div>
+      <h2 class="admin-title">Gestión de citas</h2>
+      <p class="admin-sub">Visualiza, modifica y cancela reservas</p>
+    </div>
+    <ion-badge class="total-badge">{{ total }} cita{{ total !== 1 ? 's' : '' }}</ion-badge>
+  </div>
+
+  <!-- LISTA VACÍA -->
+  <div *ngIf="appointments.length === 0" class="empty-state">
+    <ion-icon name="calendar-outline" class="empty-icon"></ion-icon>
+    <p>No hay citas registradas.</p>
+  </div>
+
+  <!-- TARJETAS DE CITAS -->
+  <div *ngFor="let appt of appointments" class="appt-card">
+
+    <!-- MODO VISTA -->
+    <ng-container *ngIf="editMode !== appt.id">
+      <div class="card-top">
+        <div class="pet-info">
+          <ion-icon name="paw-outline" class="pet-icon"></ion-icon>
+          <div>
+            <p class="pet-name">{{ appt.petName }}</p>
+            <p class="owner-name">
+              <ion-icon name="person-outline"></ion-icon>
+              {{ appt.ownerName }} · {{ appt.ownerPhone }}
+            </p>
+          </div>
+        </div>
+        <span class="service-chip confirm-chip" [ngClass]="serviceClass(appt.service)">
+          {{ appt.service }}
+        </span>
+      </div>
+
+      <div class="card-meta">
+        <span><ion-icon name="calendar-outline"></ion-icon> {{ formatDate(appt.date) }}</span>
+        <span><ion-icon name="time-outline"></ion-icon> {{ appt.time }}</span>
+        <span *ngIf="appt.status === 'Modificada'" class="modified-badge">✏️ Modificada</span>
+      </div>
+
+      <p *ngIf="appt.observations" class="obs-text">📝 {{ appt.observations }}</p>
+
+      <div class="card-actions">
+        <!-- RF11 -->
+        <ion-button size="small" fill="outline" (click)="startEdit(appt)">
+          <ion-icon name="create-outline" slot="start"></ion-icon>
+          Editar
+        </ion-button>
+        <!-- RF12 -->
+        <ion-button size="small" fill="outline" color="danger" (click)="cancelAppointment(appt)">
+          <ion-icon name="trash-outline" slot="start"></ion-icon>
+          Cancelar
+        </ion-button>
+      </div>
+    </ng-container>
+
+    <!-- MODO EDICIÓN RF11 -->
+    <ng-container *ngIf="editMode === appt.id">
+      <p class="edit-label">✏️ Editando cita de {{ appt.petName }}</p>
+
+      <ion-item lines="none" class="edit-item">
+        <ion-label position="stacked">Servicio</ion-label>
+        <ion-select [(ngModel)]="editData.service" interface="popover">
+          <ion-select-option *ngFor="let s of serviceTypes" [value]="s">{{ s }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="none" class="edit-item">
+        <ion-label position="stacked">Fecha (YYYY-MM-DD)</ion-label>
+        <ion-input [(ngModel)]="editData.date" type="date"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="edit-item">
+        <ion-label position="stacked">Horario</ion-label>
+        <ion-select [(ngModel)]="editData.time" interface="popover">
+          <ion-select-option *ngFor="let t of timeSlots" [value]="t">{{ t }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="none" class="edit-item">
+        <ion-label position="stacked">Observaciones</ion-label>
+        <ion-textarea [(ngModel)]="editData.observations" rows="2"></ion-textarea>
+      </ion-item>
+
+      <div class="card-actions">
+        <ion-button size="small" (click)="saveEdit()">
+          <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+          Guardar
+        </ion-button>
+        <ion-button size="small" fill="outline" color="medium" (click)="cancelEdit()">
+          <ion-icon name="close-circle-outline" slot="start"></ion-icon>
+          Cancelar
+        </ion-button>
+      </div>
+    </ng-container>
+
+  </div>
+
+</ion-content>

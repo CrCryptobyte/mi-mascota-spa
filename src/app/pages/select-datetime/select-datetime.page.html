@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/select-service" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fecha y horario</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar value="0.66" color="success"></ion-progress-bar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p class="step-label">Paso 2 de 3</p>
+  <h2 class="page-title">Elige una fecha</h2>
+
+  <!-- CALENDARIO -->
+  <div class="calendar-card">
+    <div class="cal-header">
+      <ion-icon name="chevron-back-outline" class="cal-nav" (click)="prevMonth()"></ion-icon>
+      <span class="cal-month">{{ monthLabel }}</span>
+      <ion-icon name="chevron-forward-outline" class="cal-nav" (click)="nextMonth()"></ion-icon>
+    </div>
+
+    <div class="cal-weekdays">
+      <span *ngFor="let d of weekDays" class="wd">{{ d }}</span>
+    </div>
+
+    <div class="cal-grid">
+      <div
+        *ngFor="let day of calendarDays"
+        class="cal-day"
+        [class.empty]="!day"
+        [class.today]="day && isToday(day)"
+        [class.selected]="day && isSelectedDate(day)"
+        [class.available]="day && isAvailableDay(day)"
+        [class.disabled]="day && !isAvailableDay(day)"
+        (click)="selectDate(day)">
+        {{ day ? day.getDate() : '' }}
+      </div>
+    </div>
+
+    <div class="cal-legend">
+      <span class="leg avail-leg">● Disponible</span>
+      <span class="leg dis-leg">● Sin horarios</span>
+    </div>
+  </div>
+
+  <!-- HORARIOS -->
+  <ng-container *ngIf="selectedDate">
+    <h3 class="section-title">
+      <ion-icon name="time-outline"></ion-icon>
+      Horarios disponibles — {{ formatDisplayDate(selectedDate) }}
+    </h3>
+
+    <div *ngIf="availableSlots.length > 0; else noSlots" class="slots-grid">
+      <div
+        *ngFor="let slot of availableSlots"
+        class="slot-chip"
+        [class.slot-selected]="slot === selectedTime"
+        (click)="selectTime(slot)">
+        {{ slot }}
+      </div>
+    </div>
+
+    <ng-template #noSlots>
+      <div class="no-slots-msg">
+        No hay horarios disponibles para esta fecha.
+        Por favor selecciona otra.
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <ion-button
+    expand="block"
+    class="btn-primary-full"
+    [disabled]="!selectedDate || !selectedTime"
+    (click)="continuar()">
+    Continuar
+    <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,77 @@
+.home-content {
+  --background: linear-gradient(160deg, #e8f7f3 0%, #f8faf9 60%);
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 52px 24px 24px;
+  text-align: center;
+}
+
+.hero-icon-wrap {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--ion-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(15, 110, 86, 0.28);
+  margin-bottom: 18px;
+}
+
+.hero-icon {
+  font-size: 44px;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+  margin: 0 0 6px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--ion-color-medium);
+  margin: 0;
+}
+
+.services-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px 20px;
+  flex-wrap: wrap;
+}
+
+.service-chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.welcome-card {
+  margin: 0 16px 24px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: var(--ion-color-dark);
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+.actions-section {
+  padding: 0 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

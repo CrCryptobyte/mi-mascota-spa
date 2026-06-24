@@ -1,0 +1,39 @@
+.step-label { font-size:12px; color:var(--ion-color-medium); font-weight:500; text-transform:uppercase; letter-spacing:.5px; margin:12px 0 4px; }
+.page-title  { font-size:22px; font-weight:700; color:var(--ion-color-dark); margin:0 0 20px; }
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ion-color-medium);
+  margin: 16px 0 8px;
+}
+
+.form-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  padding: 4px 8px 8px;
+  margin-bottom: 8px;
+}
+
+.form-item {
+  --border-radius: 10px;
+  --padding-start: 8px;
+  --background: transparent;
+  margin-bottom: 6px;
+
+  &.invalid {
+    --border-color: var(--ion-color-danger);
+    border-left: 3px solid var(--ion-color-danger);
+    border-radius: 6px;
+  }
+}
+
+.error-note {
+  color: var(--ion-color-danger);
+  font-size: 12px;
+  padding: 2px 12px 8px;
+  display: block;
+}

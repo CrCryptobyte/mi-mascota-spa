@@ -1,0 +1,49 @@
+<ion-content class="home-content">
+
+  <!-- HERO -->
+  <div class="hero-section">
+    <div class="hero-icon-wrap">
+      <ion-icon name="paw-outline" class="hero-icon"></ion-icon>
+    </div>
+    <h1 class="hero-title">Mi Mascota Spa</h1>
+    <p class="hero-subtitle">Higiene y estética para tu mejor amigo</p>
+  </div>
+
+  <!-- SERVICIOS RÁPIDOS -->
+  <div class="services-row">
+    <div class="service-chip chip-bano">🛁 Baño</div>
+    <div class="service-chip chip-peluqueria">✂️ Peluquería</div>
+    <div class="service-chip chip-unas">💅 Corte de uñas</div>
+  </div>
+
+  <!-- CARD BIENVENIDA -->
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <p class="welcome-text">
+        Agenda la cita de tu mascota de forma rápida y sencilla.
+        Solo elige el servicio, selecciona una fecha y confirma tu reserva.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- BOTONES PRINCIPALES -->
+  <div class="actions-section">
+    <ion-button
+      expand="block"
+      class="btn-primary-full"
+      (click)="goAgendarCita()">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      Agendar cita
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="outline"
+      class="btn-outline-full"
+      (click)="goAdmin()">
+      <ion-icon name="settings-outline" slot="start"></ion-icon>
+      Módulo administrador
+    </ion-button>
+  </div>
+
+</ion-content>

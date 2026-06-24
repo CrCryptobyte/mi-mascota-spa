@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/select-datetime" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Datos del cliente</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar value="1" color="success"></ion-progress-bar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p class="step-label">Paso 3 de 3</p>
+  <h2 class="page-title">Información de la cita</h2>
+
+  <!-- DATOS DEL PROPIETARIO -->
+  <p class="section-title">Datos del propietario</p>
+
+  <div class="form-card">
+    <ion-item lines="none" class="form-item" [class.invalid]="submitted && ownerName.trim().length < 3">
+      <ion-label position="stacked">Nombre completo *</ion-label>
+      <ion-input
+        [(ngModel)]="ownerName"
+        placeholder="Ej: Juan Pérez"
+        type="text"
+        autocomplete="name">
+      </ion-input>
+    </ion-item>
+    <ion-note *ngIf="submitted && ownerName.trim().length < 3" class="error-note">
+      Ingrese el nombre completo (mínimo 3 caracteres).
+    </ion-note>
+
+    <ion-item lines="none" class="form-item" [class.invalid]="submitted && ownerPhone.trim().length < 7">
+      <ion-label position="stacked">Número de teléfono *</ion-label>
+      <ion-input
+        [(ngModel)]="ownerPhone"
+        placeholder="Ej: 310 000 0000"
+        type="tel"
+        inputmode="tel">
+      </ion-input>
+    </ion-item>
+    <ion-note *ngIf="submitted && ownerPhone.trim().length < 7" class="error-note">
+      Ingrese un número de teléfono válido.
+    </ion-note>
+  </div>
+
+  <!-- DATOS DE LA MASCOTA -->
+  <p class="section-title">Datos de la mascota</p>
+
+  <div class="form-card">
+    <ion-item lines="none" class="form-item" [class.invalid]="submitted && petName.trim().length < 2">
+      <ion-label position="stacked">Nombre de la mascota *</ion-label>
+      <ion-input
+        [(ngModel)]="petName"
+        placeholder="Ej: Rocky"
+        type="text">
+      </ion-input>
+    </ion-item>
+    <ion-note *ngIf="submitted && petName.trim().length < 2" class="error-note">
+      Ingrese el nombre de la mascota.
+    </ion-note>
+
+    <ion-item lines="none" class="form-item">
+      <ion-label position="stacked">Tipo de mascota *</ion-label>
+      <ion-select [(ngModel)]="petType" interface="popover" placeholder="Seleccionar">
+        <ion-select-option *ngFor="let pt of petTypes" [value]="pt">{{ pt }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="form-item">
+      <ion-label position="stacked">Observaciones</ion-label>
+      <ion-textarea
+        [(ngModel)]="observations"
+        placeholder="Alergias, comportamiento u otras indicaciones (opcional)"
+        rows="3">
+      </ion-textarea>
+    </ion-item>
+  </div>
+
+  <ion-button
+    expand="block"
+    class="btn-primary-full"
+    [disabled]="isLoading"
+    (click)="agendar()">
+    <ion-icon name="checkmark-outline" slot="start"></ion-icon>
+    Agendar cita
+  </ion-button>
+
+</ion-content>

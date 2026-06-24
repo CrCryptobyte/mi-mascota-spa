@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Seleccionar servicio</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar value="0.33" color="success"></ion-progress-bar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p class="step-label">Paso 1 de 3</p>
+  <h2 class="page-title">¿Qué servicio necesitas?</h2>
+
+  <div class="services-list">
+    <div
+      class="service-card"
+      [class.selected]="selected === svc.id"
+      *ngFor="let svc of services"
+      (click)="select(svc.id)">
+
+      <div class="svc-left">
+        <span class="svc-emoji">{{ svc.emoji }}</span>
+        <div>
+          <p class="svc-name">{{ svc.label }}</p>
+          <p class="svc-desc">{{ svc.description }}</p>
+        </div>
+      </div>
+
+      <ion-icon
+        [name]="selected === svc.id ? 'checkmark-circle' : 'ellipse-outline'"
+        [class]="selected === svc.id ? 'check-on' : 'check-off'">
+      </ion-icon>
+
+    </div>
+  </div>
+
+  <ion-button
+    expand="block"
+    class="btn-primary-full"
+    [disabled]="!selected"
+    (click)="continuar()">
+    Continuar
+    <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,41 @@
+{
+  "name": "mi-mascota-spa",
+  "version": "1.0.0",
+  "description": "Aplicación móvil multiplataforma híbrida para gestión de citas de higiene y estética para mascotas.",
+  "author": "Cristian Camilo Ruiz Ruiz",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "ionic:serve": "ng serve",
+    "ionic:build": "ng build"
+  },
+  "dependencies": {
+    "@angular/common": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
+    "@angular/platform-browser": "^17.0.0",
+    "@angular/platform-browser-dynamic": "^17.0.0",
+    "@angular/router": "^17.0.0",
+    "@ionic/angular": "^7.0.0",
+    "@ionic/angular-toolkit": "^11.0.0",
+    "ionicons": "^7.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.0.0",
+    "@angular/cli": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/compiler-cli": "^17.0.0",
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/cli": "^5.0.0",
+    "@capacitor/core": "^5.0.0",
+    "typescript": "~5.2.2"
+  }
+}

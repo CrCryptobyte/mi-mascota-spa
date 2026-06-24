@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Confirmación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="confirm-content ion-padding" *ngIf="appointment">
+
+  <!-- ÍCONO DE ÉXITO -->
+  <div class="success-icon-wrap">
+    <ion-icon name="checkmark-circle" class="success-icon"></ion-icon>
+  </div>
+
+  <h2 class="confirm-title">¡Cita agendada!</h2>
+  <p class="confirm-sub">Tu reserva ha sido registrada exitosamente.</p>
+
+  <!-- RESUMEN CARD -->
+  <div class="summary-card">
+    <div class="summary-row">
+      <span class="summary-key">Servicio</span>
+      <span class="summary-val service-badge" [ngClass]="{
+        'chip-bano':       appointment.service === 'Baño',
+        'chip-peluqueria': appointment.service === 'Peluquería',
+        'chip-unas':       appointment.service === 'Corte de uñas'
+      }">{{ appointment.service }}</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-key">Fecha</span>
+      <span class="summary-val">{{ formattedDate }}</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-key">Hora</span>
+      <span class="summary-val">{{ appointment.time }}</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-key">Mascota</span>
+      <span class="summary-val">{{ appointment.petName }} ({{ appointment.petType }})</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-key">Propietario</span>
+      <span class="summary-val">{{ appointment.ownerName }}</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-key">Teléfono</span>
+      <span class="summary-val">{{ appointment.ownerPhone }}</span>
+    </div>
+    <div class="summary-row" *ngIf="appointment.observations">
+      <span class="summary-key">Observaciones</span>
+      <span class="summary-val obs">{{ appointment.observations }}</span>
+    </div>
+  </div>
+
+  <p class="thank-msg">Gracias por usar Mi Mascota Spa 🐾</p>
+
+  <ion-button expand="block" class="btn-primary-full" (click)="goHome()">
+    <ion-icon name="home-outline" slot="start"></ion-icon>
+    Ir al inicio
+  </ion-button>
+  <ion-button expand="block" fill="outline" class="btn-outline-full" (click)="newAppointment()">
+    <ion-icon name="calendar-outline" slot="start"></ion-icon>
+    Agendar otra cita
+  </ion-button>
+
+</ion-content>

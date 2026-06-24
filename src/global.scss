@@ -1,0 +1,73 @@
+// ─── IONIC CORE ────────────────────────────────────────
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+// ─── GLOBAL STYLES ─────────────────────────────────────
+* {
+  box-sizing: border-box;
+}
+
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: #ffffff;
+}
+
+ion-back-button {
+  --color: #ffffff;
+}
+
+ion-content {
+  --background: #f8faf9;
+}
+
+.card-shadow {
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(15, 110, 86, 0.10);
+  background: #ffffff;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--ion-color-medium);
+  margin: 16px 0 8px;
+}
+
+.btn-primary-full {
+  --background: var(--ion-color-primary);
+  --border-radius: 12px;
+  font-weight: 600;
+  height: 50px;
+  margin-top: 8px;
+}
+
+.btn-outline-full {
+  --border-radius: 12px;
+  --border-color: var(--ion-color-primary);
+  --color: var(--ion-color-primary);
+  font-weight: 500;
+  height: 44px;
+}
+
+.confirm-chip {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.chip-bano       { background: #e3f5ef; color: #0F6E56; }
+.chip-peluqueria { background: #eee8fd; color: #5b34bd; }
+.chip-unas       { background: #fef3e2; color: #b35a00; }
